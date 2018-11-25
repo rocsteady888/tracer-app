@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Navbar from './components/layout/navbar/Navbar';
 import Dashboard from './components/layout/dashboard/Dashboard';
 import PostDetails from './components/posts/PostDetails';
+import Account from './components/auth/Account';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
 import CreatePost from './components/posts/CreatePost';
@@ -16,6 +17,7 @@ class App extends Component {
           <Navbar />
           <Switch>
             <Route exact path='/' component={Dashboard} />
+            <Route path='/account' component={Account} />
             <Route path='/post/:id' component={PostDetails} />
 
             <Route path='/signin' component={SignIn} />

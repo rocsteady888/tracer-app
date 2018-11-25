@@ -7,7 +7,7 @@ class CreatePost extends React.Component {
   state = {
     title: '',
     content: ''
-
+    
   }
   handleChange = (e) => {
     this.setState({

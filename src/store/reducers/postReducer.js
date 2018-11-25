@@ -1,10 +1,4 @@
-const initState = {
-  posts: [
-    {id: '1', title: 'normal sinus rhythm', content: 'this is normal sinus rhythm with no ectopy'},
-    {id: '2', title: 'sinus tachycardia', content: 'this is a fast rate'},
-    {id: '3', title: 'sinus bradycardia', content: 'Slow rate with P waves and narrow QRS'},
-  ]
-};
+const initState = {};
 
 const postReducer = (state = initState, action) => {
   switch (action.type) {
