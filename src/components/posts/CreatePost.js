@@ -6,13 +6,21 @@ import { Redirect } from 'react-router-dom'
 class CreatePost extends React.Component {
   state = {
     title: '',
-    content: ''
-    
+    content: '',
+    file: ''
   }
   handleChange = (e) => {
     this.setState({
       [e.target.id]: e.target.value
     })
+    console.log(this.state)
+  }
+  handleUpload = (e) => {
+    const fileName = e.target.files[0]
+    this.setState({
+      [e.target.id]: fileName
+    })
+    console.log(this.state)
   }
   handleSumbit = (e) => {
     e.preventDefault();
@@ -35,6 +43,7 @@ class CreatePost extends React.Component {
             <label htmlFor="content">Content</label>
             <textarea id="content" className="materialize-textarea" onChange={this.handleChange} ></textarea>
           </div>
+          <input type="file" id="file" onChange={this.handleUpload}/>
           <div className="input-field">
             <button className="btn pink lighten-1 z-depth-0">Post</button>
           </div>

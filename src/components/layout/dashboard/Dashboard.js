@@ -15,7 +15,7 @@ class Dashboard extends React.Component {
       <div className="dashboard container">
         <div className="row">
           <div className="col s12 m6">
-            <PostList posts={posts}/>
+            <PostList posts={posts} />
           </div>
           <div className="col s12 m6">
             <Notifications notifications={notifications}/>
@@ -37,7 +37,7 @@ const mapStateToProps = (state) => {
 export default compose(
   connect(mapStateToProps),
   firestoreConnect([
-    { collection: 'posts', limit: 15, orderBy: ['createdAt', 'desc'] },
+    { collection: 'posts', limit: 5, orderBy: ['createdAt', 'desc'] },
 
     { collection: 'notifications', limit: 5, orderBy: ['time', 'desc']}
   ])

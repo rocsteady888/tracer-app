@@ -9,7 +9,7 @@ const PostSummary = ({post}) => {
         <p>{post.content}</p>
         <p>Posted by {post.authorFirstName} {post.authorLastName}</p>
         <p>{moment(post.createdAt.toDate()).calendar()}</p>
-        
+        {post.image ? <img alt='You are not authorized.' src={post.image}/> : <p>No Image</p> }
       </div>
     </div>
   )
