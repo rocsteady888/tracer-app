@@ -19,7 +19,6 @@ class App extends Component {
             <Route exact path='/' component={Dashboard} />
             <Route path='/account' component={Account} />
             <Route path='/post/:id' component={PostDetails} />
-
             <Route path='/signin' component={SignIn} />
             <Route path='/signup' component={SignUp} />
 

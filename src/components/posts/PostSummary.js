@@ -1,5 +1,6 @@
 import React from 'react'
 import moment from 'moment'
+import { connect } from 'react-redux'
 
 const PostSummary = ({post}) => {
   return (
@@ -9,10 +10,16 @@ const PostSummary = ({post}) => {
         <p>{post.content}</p>
         <p>Posted by {post.authorFirstName} {post.authorLastName}</p>
         <p>{moment(post.createdAt.toDate()).calendar()}</p>
-        {post.image ? <img alt='You are not authorized.' src={post.image}/> : <p>No Image</p> }
+        <img className="responsive-img" alt="not authorized" src={post.image}/>
       </div>
     </div>
   )
 }
 
-export default PostSummary;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    auth: state.firebase.auth
+  }
+}
+
+export default connect(mapStateToProps)(PostSummary);

@@ -15,6 +15,7 @@ const PostDetails = (props) => {
           <div className="card-content">
             <span className="card-title">{post.title}</span>
             <p>{post.content}</p>
+            <img className="responsive-img" alt="not authorized" src={post.image}/>
           </div>
           <div className="card-action grey lighten-4 grey-text">
             <div>Posted By {post.authorFirstName + " " + post.authorLastName}</div>

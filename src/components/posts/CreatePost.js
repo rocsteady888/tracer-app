@@ -13,18 +13,15 @@ class CreatePost extends React.Component {
     this.setState({
       [e.target.id]: e.target.value
     })
-    console.log(this.state)
   }
   handleUpload = (e) => {
     const fileName = e.target.files[0]
     this.setState({
       [e.target.id]: fileName
     })
-    console.log(this.state)
   }
   handleSumbit = (e) => {
     e.preventDefault();
-    //console.log(this.state);
     this.props.createPost(this.state);
     this.props.history.push('/');
   }
