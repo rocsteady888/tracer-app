@@ -5,9 +5,10 @@ import { Redirect } from 'react-router-dom'
 
 class CreatePost extends React.Component {
   state = {
-    title: '',
-    content: '',
-    file: ''
+    title: null,
+    content: null,
+    file: null,
+    errorMsg: null
   }
   handleChange = (e) => {
     this.setState({
@@ -22,8 +23,14 @@ class CreatePost extends React.Component {
   }
   handleSumbit = (e) => {
     e.preventDefault();
-    this.props.createPost(this.state);
-    this.props.history.push('/');
+    if ( this.state.title !== null && this.state.content !== null && this.state.file !== null) {
+      this.props.createPost(this.state);
+      this.props.history.push('/');
+    } else {
+      this.setState({
+        errorMsg: 'You must enter a title, some content and attach a file to post'
+      })
+    }
   }
   render() {
     const { auth } = this.props
@@ -41,6 +48,7 @@ class CreatePost extends React.Component {
             <textarea id="content" className="materialize-textarea" onChange={this.handleChange} ></textarea>
           </div>
           <input type="file" id="file" onChange={this.handleUpload}/>
+          <p className="red">{this.state.errorMsg}</p>
           <div className="input-field">
             <button className="btn pink lighten-1 z-depth-0">Post</button>
           </div>
